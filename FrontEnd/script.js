@@ -23,11 +23,36 @@ gallery.appendChild(figure);
 });
 }
 
+function displayModalWorks(works) {
+    const modalGallery = document.querySelector(".modal-gallery");
+    if (!modalGallery) return;
+
+    modalGallery.innerHTML = "";
+
+    works.forEach(work => {
+        const figure = document.createElement("figure");
+        figure.classList.add("modal-work");
+
+        const image = document.createElement("img");
+        image.src = work.imageUrl;
+        image.alt = work.title;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-work");
+        deleteButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+
+        figure.appendChild(image);
+        figure.appendChild(deleteButton);
+        modalGallery.appendChild(figure);
+    });
+}
+
 fetch("http://localhost:5678/api/works")
 .then(response => response.json())
 .then(works => {
 allWorks = works;
 displayWorks(allWorks);
+displayModalWorks(allWorks);
 })
 .catch(error => {
 console.error("Erreur :", error);
@@ -82,3 +107,41 @@ if (token) {
         });
     }
 }
+
+if (token) {
+const editBanner = document.getElementById("edit-banner");
+if (editBanner) {
+editBanner.style.display = "flex";
+}
+
+const editButton = document.getElementById("edit-projects");
+if (editButton) {
+editButton.style.display = "block";
+}
+}
+
+const modal = document.getElementById("modal");
+const modalOpenButton = document.getElementById("edit-projects");
+const closeModal = document.querySelector(".modal-close");
+
+if (modalOpenButton) {
+modalOpenButton.addEventListener("click", () => {
+if (modal) {
+modal.style.display = "flex";
+}
+});
+}
+
+if (closeModal) {
+closeModal.addEventListener("click", () => {
+if (modal) {
+modal.style.display = "none";
+}
+});
+}
+
+window.addEventListener("click", (event) => {
+if (modal && event.target === modal) {
+modal.style.display = "none";
+}
+});

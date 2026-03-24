@@ -9,8 +9,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+	<div id="edit-banner">
+		<i class="fa-regular fa-pen-to-square"></i>
+		<span>Mode édition</span>
+	</div>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
@@ -34,10 +39,19 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
+
 	<section id="portfolio">
+	  <div class="portfolio-title">
 		<h2>Mes Projets</h2>
+		<button id="edit-projects">
+		 <i class="fa-regular fa-pen-to-square"></i>
+		 Modifier
+	    </button>
+	  </div>
+
 		<div class="filters"></div>
 		<div class="gallery"></div>
+
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
@@ -62,6 +76,22 @@
 	</nav>
 </footer>
 
+<div id="modal" class="modal">
+	<div class="modal-wrapper">
+		<button class="modal-close">
+			<i class="fa-solid fa-xmark"></i>
+		</button>
+		
+		<div id="modal-gallery-view">
+			<h3>Galerie photo</h3>
+			<div class="modal-gallery"></div>
+			<hr>
+			<button class="add-photo" id="open-add-photo">Ajouter une photo</button>
+		</div>
+	</div>
+</div>
+
 <script src="script.js"></script>
+
 </body>
 </html>
