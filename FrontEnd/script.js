@@ -1,3 +1,5 @@
+const token = localStorage.getItem("token");
+
 let allWorks = [];
 
 function displayWorks(works) {
@@ -61,3 +63,22 @@ displayWorks(filteredWorks);
 .catch(error => {
 console.error("Erreur :", error);
 });
+
+if (token) {
+    const filters = document.querySelector(".filters");
+    if (filters) {
+        filters.style.display = "none";
+    }
+
+    const loginLink = document.querySelector('a[href="./login.html"]');
+
+    if (loginLink) {
+        loginLink.textContent = "logout";
+        loginLink.href = "#";
+
+        loginLink.addEventListener("click", () => {
+            localStorage.removeItem("token");
+            window.location.reload();
+        });
+    }
+}
