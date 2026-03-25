@@ -78,6 +78,10 @@
 
 <div id="modal" class="modal">
 	<div class="modal-wrapper">
+		<button class="modal-back">
+			<i class="fa-solid fa-arrow-left"></i>
+			</button>
+
 		<button class="modal-close">
 			<i class="fa-solid fa-xmark"></i>
 		</button>
@@ -88,6 +92,34 @@
 			<hr>
 			<button class="add-photo" id="open-add-photo">Ajouter une photo</button>
 		</div>
+
+		<div id="modal-add-view">
+			<h3>Ajout photo</h3>
+
+			<form id="add-photo-form">
+				<div class="upload-placeholder">
+					<img id="preview-image" alt="preview" style="display:none; max-height:100%;">
+
+					<i class="fa-regular fa-image" id="preview-icon"></i>
+
+					<label for="image" class="upload-button" id="preview-label"> + Ajouter photo </label>
+
+					<input type="file" id="image" accept="image/*" hidden>
+
+					<p id="preview-text">jpg, png : 4mo max</p>
+					</div>
+
+					<label for="title">Titre</label>
+					<input  type="text"  id="title">
+
+					<label for="category">Catégorie</label>
+					<select id="category"></select>
+
+					<hr class="modal-separator">  
+
+					<button type="submit" class="validate-photo">Valider</button>
+					</form>
+					</div>
 	</div>
 </div>
 
@@ -95,3 +127,4 @@
 
 </body>
 </html>
+
